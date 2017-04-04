@@ -1,19 +1,11 @@
-DOCKER_COMPOSE=$(shell which docker-compose)
-env=../.env
-config=
-
+DOCKER=$(shell which docker)
 
 up:
-	$(DOCKER_COMPOSE) -f docker-compose.yml up
+	$(DOCKER) run -i -t continuumio/anaconda3 /bin/bash
 
-build:
-	$(DOCKER_COMPOSE) -f docker-compose.yml build
-
-clean:
-	$(DOCKER_COMPOSE) -f docker-compose.yml stop
-	$(DOCKER_COMPOSE) -f docker-compose.yml rm
-
-flush_storage:
-	rm -rf storage/mysql/**
-	rm -rf storage/redis/**
+up/notebook:
+	$(DOCKER) run -i -t -p 8888:8888 continuumio/anaconda3 \
+		/bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet &&\
+		mkdir /opt/notebooks && /opt/conda/bin/jupyter notebook \
+		--notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser"
 

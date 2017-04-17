@@ -1,4 +1,15 @@
 DOCKER=$(shell which docker)
+DOCKER_COMPOSE=$(shell which docker-compose)
+
+docker-compose/up:
+	$(DOCKER_COMPOSE) up
+
+docker-compose/build:
+	$(DOCKER_COMPOSE) build
+
+docker-compose/clean:
+	$(DOCKER_COMPOSE) stop
+	$(DOCKER_COMPOSE) rm
 
 #https://www.continuum.io/blog/developer-blog/anaconda-and-docker-better-together-reproducible-data-science
 up:

@@ -1,0 +1,16 @@
+version: '2' #for sysctls
+
+services:
+  py-app:
+      build: ./app
+      volumes:
+          - $PWD/..:/srv/
+      ports:
+          - "80:80"
+          - "443:443"
+          - "25"
+      tty: true
+      environment:
+          - TZ=Asia/Tokyo
+      command: bash
+      working_dir: /srv

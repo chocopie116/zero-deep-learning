@@ -1,3 +1,3 @@
 FROM continuumio/anaconda3
 
-CMD apt-get install python-qt4
+RUN apt-get -y install python-qt4

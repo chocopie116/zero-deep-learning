@@ -1,4 +1,4 @@
-import lib as l
+from common import lib as l
 from matplotlib.image import imread
 
 img = imread('lena.png')

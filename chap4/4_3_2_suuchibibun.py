@@ -18,9 +18,21 @@ y = function_1(x)
 l.plt.xlabel("x")
 l.plt.ylabel("f(x)")
 
-tf = tangent_line(function_1, 5)
+x_point = 10
+
+# 傾きのグラフ
+tf = tangent_line(function_1, x_point)
 y2 = tf(x)
 
+# Range
+l.plt.xlim(0, 20)
+l.plt.ylim(-1, 6)
+
+# dashed
+l.plt.plot([0, x_point], [function_1(x_point), function_1(x_point)], '--o')
+l.plt.plot([x_point, x_point], [-1, function_1(x_point)], '--o')
+
+# Drawing
 l.plt.plot(x, y)
 l.plt.plot(x, y2)
 l.plt_show_alt(l.plt)

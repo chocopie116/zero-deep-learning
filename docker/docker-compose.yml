@@ -6,8 +6,8 @@ services:
       volumes:
           - $PWD/..:/srv/
       ports:
-          - "80:80"
-          - "443:443"
+          #- "80:80"
+          #- "443:443"
           - "25"
       tty: true
       environment:
